@@ -4,7 +4,7 @@ pipeline {
     environment {
         APP = 'frontend'
         DB_URL = '192.168.28.24'
-        BRANCH = 'Mmain'
+        BRANCH = 'main'
         GIT_URL = 'https://github.com/Madhuyamu/ip_app-main.git'
         CRD_ID = 'github_my'
             }
