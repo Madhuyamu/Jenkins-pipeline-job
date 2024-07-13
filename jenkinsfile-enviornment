@@ -8,7 +8,7 @@ pipeline {
         GIT_URL = 'https://github.com/Madhuyamu/ip_app-main.git'
         CRD_ID = 'github_my'
             }
-    }
+
     stages {
         stage('ENVIRONMENT VARIABLE') {
             steps {
