@@ -5,7 +5,7 @@ pipeline {
         APP = 'frontend'
         DB_URL = '192.168.28.24'
         BRANCH = 'main'
-        GIT_URL = 'https://github.com/Madhuyamu/ip_app-main.git'
+        GIT_URL = 'https://github.com/Madhuyamu/jenkins-pipeline-job.git'
         CRD_ID = 'github_my'
             }
 
