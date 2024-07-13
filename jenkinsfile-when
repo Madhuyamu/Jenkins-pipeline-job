@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                git branch: 'main', 
+                    credentialsId: 'github_my', 
+                    url: 'https://github.com/Madhuyamu/jenkins-pipline-job.git'
+            }
+        }
+        
+        stage('build with main') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo "this is build by main branch"
+                sh 'ls -lrt'
+            }
+        }
+
+        stage('build with dev') {
+            when {
+                branch 'dev'
+            }
+            steps {
+                echo "this is build by dev branch"
+                sh 'ls -lrt'
+            }
+        }
+    }
+}
