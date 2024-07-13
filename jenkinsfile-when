@@ -49,9 +49,9 @@ pipeline {
             }
         }
 
-        stage('build with alloff ') {
+        stage('build with allof ') {
             when {
-                alloff {
+                allof {
                 environment name: 'BRANCH', value: 'dev'
                 environment name: 'BRANCH', value: 'main'
                 }
