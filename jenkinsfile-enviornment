@@ -3,13 +3,13 @@ pipeline {
 
     environment {
         APP = 'frontend'
-        DB_URL = '192.168.20.30'
+        DB_URL = '192.168.28.24'
     }
     stages {
         stage('ENVIRONMENT VARIABLE') {
             steps {
                 script {
-                    echo "${env.APP}: ${env."
+                    echo "${env.APP}: ${env.DB_URL}"
                 }
 
                 sh "echo ${APP}"
