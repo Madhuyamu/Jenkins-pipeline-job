@@ -1,19 +1,30 @@
 pipeline {
     agent any
         stages {
-            stage('CODE CHECKOUT') {
+            stage('CODE CHECKOUT WITH GIT') {
                 steps {
-                    git branch: 'main', credentialsId: 'github_my', url: 'https://github.com/Madhuyamu/ip_app-main.git'
+                    git branch: 'main', 
+                    credentialsId: 'github_my', 
+                    url: 'https://github.com/Madhuyamu/ip_app-main.git'
                 }
             }
 
-            stage('BUILD') {
+            stage('CHECK FILES WITH GIT') {
                 steps {
                     sh 'ls -lrt'
                 }
             }
+            
+            stage('CODE CHECKOUT WITH CHECKOUT') {
+                steps {
+                    checkout scmGit(branches: [[name: '*/main']], 
+                                    extensions: [], 
+                                    userRemoteConfigs: [[credentialsId: 'github_my', 
+                                    url: 'https://github.com/Madhuyamu/Jenkins-pipeline-job.git']])
+                }
+            }
 
-            stage('BUILD1') {
+            stage('CHECK FILES WITH CHECKOUT') {
                 steps {
                     sh 'ls -lrt'
                 }
