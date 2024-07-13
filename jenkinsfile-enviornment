@@ -4,6 +4,10 @@ pipeline {
     environment {
         APP = 'frontend'
         DB_URL = '192.168.28.24'
+        BRANCH = 'Mmain'
+        GIT_URL = 'https://github.com/Madhuyamu/ip_app-main.git'
+        CRD_ID = 'github_my'
+            }
     }
     stages {
         stage('ENVIRONMENT VARIABLE') {
@@ -15,5 +19,20 @@ pipeline {
                 sh "echo ${APP}"
             }
         }
+
+        stage('code checkout') {
+            steps {
+                git branch: "${env.MAIN}", 
+                    credentialsId: "$env.CRD_ID", 
+                    url: "$env.GIT_URL"
+            }
+        }
+
+        stage('check checkout') {
+            steps {
+                sh 'ls -lrt'
+            }
+        }
+
     }
 }
