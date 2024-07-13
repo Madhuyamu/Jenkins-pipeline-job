@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+        stages {
+            stage('CODE CHECKOUT') {
+                steps {
+                    git branch: 'main', credentialsId: 'github_my', url: 'https://github.com/Madhuyamu/ip_app-main.git'
+                }
+            }
+
+            stage('BUILD') {
+                steps {
+                    sh 'ls -lrt'
+                }
+            }
+
+            stage('BUILD1') {
+                steps {
+                    sh 'ls -lrt'
+                }
+            }
+        }
+}
