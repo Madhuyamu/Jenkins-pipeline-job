@@ -35,5 +35,31 @@ pipeline {
                 sh 'ls -lrt'
             }
         }
+
+        stage('build with anyof') {
+            when {
+                anyof {
+                environment name: 'BRANCH', value: 'dev'
+                environment name: 'BRANCH', value: 'main'
+                }
+            }
+            steps {
+                echo "this is build by dev branch"
+                sh 'ls -lrt'
+            }
+        }
+
+        stage('build with alloff ') {
+            when {
+                alloff {
+                environment name: 'BRANCH', value: 'dev'
+                environment name: 'BRANCH', value: 'main'
+                }
+            }
+            steps {
+                echo "this is build by dev branch"
+                sh 'ls -lrt'
+            }
+        }
     }
 }
