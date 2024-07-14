@@ -2,7 +2,12 @@ pipeline {
     agent any
     options {
         timestamps()
-        timeout(time: 15, unit: 'SECONDS')
+        disableConcurrentBuilds(abortPrevious: true)
+        buildDiscarder(logRotator(numToKeepStr: '2'))
+    }
+
+    triggers {
+        pollSCM('* * * * *')
     }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
@@ -27,6 +32,8 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+
+                sh 'sleep 10'
             }
         }
     }
