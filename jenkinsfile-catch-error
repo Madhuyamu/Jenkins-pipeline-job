@@ -15,5 +15,19 @@ pipeline {
                 }
 
             }
+
+            stage('STAGE 3') {
+                steps {
+                    echo "This is STAGE 3"
+                }
+
+            }
+
+            stage('STAGE 4') {
+                steps {
+                    echo "This is STAGE "
+                }
+
+            }
         }
 }
