@@ -3,7 +3,7 @@ pipeline {
         stages {
             stage('STAGE 1') {
                 steps {
-                    catcherror(stageresult: 'FAILURE', buildresult: 'SUCCESS') {
+                    CatchError(stageResult: 'FAILURE', buildRSesult: 'SUCCESS') {
                         echo "This is STAGE 1"
                         sh 'exit 1'
                     }
