@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+    stages {
+        stage ('build') {
+            steps {
+                echo "build the aplication"
+                sh 'sleep 5'
+            }
+        }
+
+        stage ('parallel Testing') {
+            parallel {
+                stage ('Test in chrome') {
+                    steps {
+                        echo "testing in chrome browse"
+                        sh 'sleep 5'
+                    }
+                }
+
+                stage ('Test in opera') {
+                    steps {
+                        echo "testing in opera"
+                        sh 'sleep 5'
+                    }
+                }
+
+                stage ('Test in safari ') {
+                    steps {
+                        echo "testing in safari"
+                        sh 'sleep 5'
+                    }
+                }
+
+                stage ('Test in firefox') {
+                    steps {
+                        echo "testing in firefox"
+                        sh 'sleep 5'
+                    }
+                }
+                
+            }
+        }
+
+        stage ('deploy') {
+                    steps {
+                        echo "deploy the application"
+                        sh 'sleep 5'
+                    }
+                }
+    }    
+    }
