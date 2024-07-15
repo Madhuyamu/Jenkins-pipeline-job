@@ -1,6 +1,7 @@
+boolean testStatus = true
+
 pipline {
     agent any
-    boolean testStatus = true
         stages {
             stage ('BUILD') {
                 steps {
