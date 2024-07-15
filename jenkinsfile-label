@@ -4,6 +4,8 @@ pipeline {
     }
     stages {
         stage('Build') {
+            parallel ('parallel build') {
+
             steps {
                 echo "testing build"
                 sh 'ls -lrt'
@@ -24,5 +26,6 @@ pipeline {
                 sh 'sleep 5'
             }
         }
+    }
     }
 }
