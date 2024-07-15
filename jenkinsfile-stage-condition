@@ -12,14 +12,16 @@ pipline {
 
             stage ('TEST') {
                 steps {
-                    try {
-                        echo "running the test cases"
-                        sh 'sleep 5'
-                        sh 'exit 1'
-                    } catch (Expections e) {
-                        echo "got an extension, need to hamndle it."
-                        echo "$e"
-                        testStatus = false 
+                    script {
+                        try {
+                            echo "running the test cases"
+                            sh 'sleep 5'
+                            sh 'exit 1'
+                        } catch (Expections e) {
+                            echo "got an extension, need to hamndle it."
+                            echo "$e"
+                            testStatus = false 
+                        }
                     }
                 }
 
@@ -27,10 +29,12 @@ pipline {
 
             stage ('DEPLOY') {
                 steps {
-                    if (testStatus == true) {
-                       echo "deploy the app to server" 
-                    } else {
-                        echo "skipping deployment"   
+                    sript {
+                        if (testStatus == true) {
+                            echo "deploy the app to server" 
+                        } else {
+                            echo "skipping deployment"   
+                        }
                     }
                 }
 
@@ -38,11 +42,12 @@ pipline {
 
             stage ( 'NOTIFICATION' ) {
                 steps {
-                    if (testStatus == true) {
-                        echo "notify the test failure"   
-                    } else {
-                        echo "skipping notification"
-
+                    script {
+                            if (testStatus == true) {
+                                echo "notify the test failure"   
+                            } else {
+                            echo "skipping notification"
+                            }
                     }
                 }
 
