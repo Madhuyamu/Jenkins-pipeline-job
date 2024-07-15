@@ -17,8 +17,8 @@ pipline {
                             echo "running the test cases"
                             sh 'sleep 5'
                             sh 'exit 1'
-                        } catch (Expections e) {
-                            echo "got an extension, need to hamndle it."
+                        } catch (Exception e) {
+                            echo "got an exception, need to handle it."
                             echo "$e"
                             testStatus = false 
                         }
@@ -29,7 +29,7 @@ pipline {
 
             stage ('DEPLOY') {
                 steps {
-                    sript {
+                    script {
                         if (testStatus == true) {
                             echo "deploy the app to server" 
                         } else {
