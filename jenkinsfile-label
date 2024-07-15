@@ -5,27 +5,28 @@ pipeline {
     stages {
         stage('Build') {
             parallel {
-
-            steps {
-                echo "testing build"
-                sh 'ls -lrt'
-                sh 'sleep 5'
+                stage('parallel build') {
+                    steps {
+                    echo "testing build"
+                    sh 'ls -lrt'
+                    sh 'sleep 5'
+                }
+            }
+                stage('Test') {
+                    steps {
+                        echo "testing test"
+                        sh 'ls -lrt'
+                        sh 'sleep 5'
+                }
+            }
+                stage('Deploy') {
+                    steps {
+                        echo "testing deploy"
+                        sh 'ls -lrt'
+                        sh 'sleep 5'
+                }
             }
         }
-        stage('Test') {
-            steps {
-                echo "testing test"
-                sh 'ls -lrt'
-                sh 'sleep 5'
-            }
         }
-        stage('Deploy') {
-            steps {
-                echo "testing deploy"
-                sh 'ls -lrt'
-                sh 'sleep 5'
-            }
-        }
-    }
     }
 }
