@@ -1,6 +1,6 @@
 boolean testStatus = true
 
-pipline {
+pipeline {
     agent any
         stages {
             stage ('BUILD') {
