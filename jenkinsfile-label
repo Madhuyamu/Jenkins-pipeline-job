@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        label 'slave1'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "testing build"
+                sh 'ls -lrt'
+                sh 'sleep 5'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "testing test"
+                sh 'ls -lrt'
+                sh 'sleep 5'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "testing deploy"
+                sh 'ls -lrt'
+                sh 'sleep 5'
+            }
+        }
+    }
+}
