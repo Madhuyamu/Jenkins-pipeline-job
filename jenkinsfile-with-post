@@ -53,12 +53,6 @@ pipeline {
 
             }
 
-            stage ( 'STAGE' ) {
-                steps {
-                    sh 'exit 1'
-                }
-
-            }
         }
 
     post {
