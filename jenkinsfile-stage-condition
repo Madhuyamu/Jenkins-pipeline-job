@@ -43,7 +43,7 @@ pipeline {
             stage ( 'NOTIFICATION' ) {
                 steps {
                     script {
-                            if (testStatus == true) {
+                            if (testStatus == false) {
                                 echo "notify the test failure"   
                             } else {
                             echo "skipping notification"
