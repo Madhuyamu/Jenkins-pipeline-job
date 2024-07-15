@@ -1,7 +1,9 @@
 boolean testStatus = true
 
 pipeline {
-    agent any
+    agent {
+        label 'slave1'
+    }
         stages {
             stage ('BUILD') {
                 steps {
