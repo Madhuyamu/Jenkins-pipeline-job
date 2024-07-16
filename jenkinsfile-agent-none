@@ -24,7 +24,11 @@ pipeline {
             when {
                 branch 'main'
             }
-            sh 'sleep 5'
+            steps {
+                sh 'sleep 5'
+
+            }
+            
         }
     }
 }
