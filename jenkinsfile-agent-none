@@ -1,0 +1,32 @@
+pipeline {
+    agent none 
+
+    stages {
+        stage ('build') {
+            agent {
+                label 'slave1'
+                    steps {
+                     echo "this is from slave1"
+            }
+        }
+        }
+
+        stage ('test') {
+            agent {
+                label 'slave2'
+                    steps {
+                     echo "this is from slave2"
+            }
+        }
+        }
+
+        stage ('deploy') {
+            agent {
+                label 'master'
+                    steps {
+                     echo "deploy in master"
+            }
+        }
+        }
+    }
+}
