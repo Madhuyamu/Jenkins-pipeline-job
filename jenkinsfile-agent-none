@@ -8,6 +8,7 @@ pipeline {
             }
                     steps {
                      echo "this is from slave1"
+                     sh 'sleep 5'
         }
         }
 
@@ -17,13 +18,14 @@ pipeline {
             }
                     steps {
                      echo "this is from slave"
+                     sh 'sleep 5'
                     }
         }
         
 
         stage ('deploy') {
-            when {
-                branch 'main'
+            agent {
+                label 'main'
             }
             steps {
                 sh 'sleep 5'
