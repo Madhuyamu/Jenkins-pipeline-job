@@ -25,7 +25,7 @@ pipeline {
 
         stage ('deploy') {
             agent {
-                label 'master'
+                label 'Built-In Node'
             }
             steps {
                 sh 'sleep 5'
