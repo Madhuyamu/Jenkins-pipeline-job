@@ -34,7 +34,7 @@ pipeline {
 
             stage ('LOAD TESTING') {
                 steps { 
-                    dir (./calculator_app) {
+                    dir ('./calculator_app') {
                         sh 'mvn verify'
                     }
                 }
