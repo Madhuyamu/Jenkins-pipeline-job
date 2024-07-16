@@ -4,21 +4,22 @@ pipeline {
     stages {
         stage ('build') {
             agent {
-                label 'slave1 slave2'
+                label 'slave1'
+            }
                     steps {
                      echo "this is from slave1"
-            }
         }
         }
 
         stage ('test') {
             agent {
-                label 'slave2 slave1'
+                label 'slave2'
+            }
                     steps {
                      echo "this is from slave"
-            }
+                    }
         }
-        }
+        
 
         stage ('deploy') {
             when {
