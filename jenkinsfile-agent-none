@@ -15,18 +15,16 @@ pipeline {
             agent {
                 label 'slave2'
                     steps {
-                     echo "this is from slave2"
+                     echo "this is from slave"
             }
         }
         }
 
         stage ('deploy') {
-            agent {
-                label 'master'
-                    steps {
-                     echo "deploy in master"
+            when {
+                branch 'main'
             }
-        }
+            sh 'sleep 5'
         }
     }
 }
