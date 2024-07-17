@@ -18,7 +18,7 @@ pipeline {
             stage ('UNIT TESTING') {
                 steps { 
                     sh '''
-                    cd ./caculator_app
+                    cd ./calculator_app
                     mvn test
                     '''
                 }
