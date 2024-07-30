@@ -3,7 +3,7 @@ pipeline {
         stages {
             stage('test') {
                 agent {
-                    docker { image 'maven'}
+                    docker { image 'maven' } 
                 }
                 steps {
                     script { 
@@ -11,7 +11,7 @@ pipeline {
                                     extensions: [], 
                                     userRemoteConfigs: [[credentialsId: 'github_my', 
                                     url: 'https://github.com/Madhuyamu/java_apps.git']])
-                        sh ' cd calculator_app; mvn clean test'
+                        sh 'cd calculator_app; mvn clean test'
                     }
                 }
             }
