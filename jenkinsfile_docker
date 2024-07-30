@@ -10,5 +10,14 @@ pipeline {
 
                 }
             }
+
+            stage('build') {
+                steps {
+                    dir('./calculator_app') {
+                        sh 'ls -lrt'
+                    }
+
+                }
+            }
         }
 }
