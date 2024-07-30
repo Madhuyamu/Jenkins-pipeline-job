@@ -1,23 +1,20 @@
 pipeline {
     agent any
         stages {
-            stage('checkout') {
+            stage('test') {
+                agent {
+                    docker { image 'maven'}
+                }
                 steps {
+                    script { 
                     checkout scmGit(branches: [[name: '*/main']], 
                                     extensions: [], 
                                     userRemoteConfigs: [[credentialsId: 'github_my', 
                                     url: 'https://github.com/Madhuyamu/java_apps.git']])
-
-                }
-            }
-
-            stage('build') {
-                steps {
-                    dir('./calculator_app') {
-                        sh 'ls -lrt'
+                        sh ' cd calculator_app; mvn clean test'
                     }
-
                 }
             }
+
         }
 }
